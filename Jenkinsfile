@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh """
                    cat deployment.yaml
-                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
+                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMG_TAG}/g' deployment.yaml
                    cat deployment.yaml
                 """
             }
@@ -30,8 +30,8 @@ pipeline {
         stage("Push the changed deployment file to Git") {
             steps {
                 sh """
-                   git config --global user.name "Ashfaque-9x"
-                   git config --global user.email "ashfaque.s510@gmail.com"
+                   git config --global user.name "shahzoo125"
+                   git config --global user.email "shahzaibanwar08@gmail.com"
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
                 """
